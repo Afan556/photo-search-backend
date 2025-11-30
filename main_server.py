@@ -82,7 +82,7 @@ def get_mongo_client():
     """Connect to MongoDB Atlas (Free Tier)"""
     # Replace with your MongoDB connection string
     # Sign up at: https://www.mongodb.com/cloud/atlas/register
-    MONGO_URI = os.getenv("MONGO_URI",  "mongodb+srv://photosearch_user:BpZP0kY86mCz3iZa@photosearchcluster.tmsstki.mongodb.net/?appName=PhotoSearchCluster")
+    MONGO_URI = os.getenv("MONGO_URI",  "mongodb+srv://username:password@cluster.mongodb.net/")
     client = pymongo.MongoClient(MONGO_URI)
     return client
 
@@ -354,4 +354,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     print(f"🌐 Starting server at http://{args.host}:{args.port}")
+
     uvicorn.run(app, host=args.host, port=args.port)
